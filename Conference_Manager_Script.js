@@ -1,6 +1,6 @@
 // Conference Manager Script
 // 1. Hoisting
-// Calling the function before it is defined.
+// Calling the function before it is defined
 main();
 
 function main() {
