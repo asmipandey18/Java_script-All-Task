@@ -1,12 +1,15 @@
 // Conference Manager Script
+
 // 1. Hoisting
 // Calling the function before it is defined.
 main();
 
+// Main Function
 function main() {
     console.log("Conference Manager Started");
 
     // 2. Temporal Dead Zone (TDZ)
+    // Intentionally triggering a TDZ ReferenceError
     try {
         console.log(conferenceName);
         let conferenceName = "Tech Conference 2026";
@@ -15,17 +18,18 @@ function main() {
     }
 
     // 3. Array & Object
+    // Array of speaker objects
     const speakers = [
         {
-            name: "Virat kohli",
+            name: "virat kohli",
             fee: 1200
         },
         {
-            name: "AB Devillers",
+            name: "ab devilliers",
             fee: 1800
         },
         {
-            name: "Jasprit Bumrah",
+            name: "jasprit bumrah",
             fee: 1500
         }
     ];
@@ -37,18 +41,19 @@ function main() {
     }));
 
     // 4. Spread Operator
-    // Add a surprise VIP speaker without changing the original array
+    // Add a surprise VIP speaker without mutating the original array
     const vipSpeaker = {
-        name: formatName("Asmi pandey"),
+        name: formatName("asmi pandey"),
         fee: 5000
     };
 
     const allSpeakers = [...formattedSpeakers, vipSpeaker];
 
-    console.log("\nConference Speakers");
+    console.log("\nConference Speakers:");
     console.table(allSpeakers);
 
     // 5. Rest Parameter
+    // Function accepts any number of fees
     function calculateFees(...fees) {
         return fees.reduce((total, fee) => total + fee, 0);
     }
@@ -58,9 +63,11 @@ function main() {
     );
 
     // 6. Number
-    console.log("Total Speaking Fees: $" + totalFees);
+    // Format total fees to two decimal places
+    console.log("Total Speaking Fees: $" + totalFees.toFixed(2));
 
     // 7. Date
+    // Calculate days until conference
     const today = new Date();
     const conferenceDate = new Date("2026-12-20");
 
@@ -76,21 +83,21 @@ function main() {
     console.log("Headliner 2:", headliner2.name);
 
     // 9. DRY Principle
-    // formatName() is used multiple times so the formatting logic
-    // is written only once.
+    // formatName() helper function is used multiple times
+    // to avoid repeating the same name-formatting logic.
 
     // 10. Debugging
     debugger;
 
-    console.log("\nOriginal Speakers");
+    console.log("\nOriginal Speakers:");
     console.table(speakers);
 
-    console.log("Final Conference Speakers");
+    console.log("Final Conference Speakers:");
     console.table(allSpeakers);
 }
 
 // DRY Principle Helper Function
-// Function declarations are hoisted, so it can be placed here.
+// Function declarations are hoisted
 function formatName(name) {
     return name
         .split(" ")
