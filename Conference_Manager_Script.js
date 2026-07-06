@@ -1,7 +1,9 @@
+// ===========================================
 // Conference Manager Script
+// ===========================================
 
 // 1. Hoisting
-// Calling the function before it is defined
+// Calling the function before it is defined.
 main();
 
 // Main Function
@@ -25,7 +27,7 @@ function main() {
             fee: 1200
         },
         {
-            name: "ab devilliers",
+            name: "ab de villiers",
             fee: 1800
         },
         {
